@@ -8,24 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		6AA0D99721DF6DB500AEEEA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D99621DF6DB500AEEEA1 /* AppDelegate.swift */; };
-		6AA0D99921DF6DB500AEEEA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D99821DF6DB500AEEEA1 /* ViewController.swift */; };
 		6AA0D99C21DF6DB500AEEEA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA0D99A21DF6DB500AEEEA1 /* Main.storyboard */; };
 		6AA0D99F21DF6DB500AEEEA1 /* Expenso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D99D21DF6DB500AEEEA1 /* Expenso.xcdatamodeld */; };
 		6AA0D9A121DF6DB600AEEEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AA0D9A021DF6DB600AEEEA1 /* Assets.xcassets */; };
 		6AA0D9A421DF6DB600AEEEA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA0D9A221DF6DB600AEEEA1 /* LaunchScreen.storyboard */; };
 		6AA0D9AC21DF729500AEEEA1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6AA0D9AB21DF729500AEEEA1 /* README.md */; };
+		6AA0D9B121DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9B021DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift */; };
+		6AA0D9B421DF77D100AEEEA1 /* AddOrEditExpenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9B321DF77D100AEEEA1 /* AddOrEditExpenceViewController.swift */; };
+		6AA0D9B821DF792100AEEEA1 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9B721DF792100AEEEA1 /* OverviewViewController.swift */; };
+		6AA0D9BA21DF79DE00AEEEA1 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */; };
+		6AA0D9BC21DF85A300AEEEA1 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9BB21DF85A300AEEEA1 /* TextFieldCell.swift */; };
+		6AA0D9BE21DF86F700AEEEA1 /* TrasactionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9BD21DF86F700AEEEA1 /* TrasactionImageCell.swift */; };
+		6AA0D9C021DF872100AEEEA1 /* TrasactionCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9BF21DF872100AEEEA1 /* TrasactionCategoryCell.swift */; };
+		6AA0D9C221DF881100AEEEA1 /* TrasactionDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9C121DF881100AEEEA1 /* TrasactionDescriptionCell.swift */; };
+		6AA0D9C421DF88D100AEEEA1 /* TrasactionDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9C321DF88D100AEEEA1 /* TrasactionDateCell.swift */; };
+		6AA0D9C621DF896500AEEEA1 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9C521DF896500AEEEA1 /* DatePickerCell.swift */; };
+		6AA0D9CC21DF911800AEEEA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CB21DF911800AEEEA1 /* Category.swift */; };
+		6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CD21DF91DD00AEEEA1 /* AllCategoryViewModel.swift */; };
+		6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6AA0D99321DF6DB500AEEEA1 /* Expenso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA0D99621DF6DB500AEEEA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6AA0D99821DF6DB500AEEEA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6AA0D99B21DF6DB500AEEEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AA0D99E21DF6DB500AEEEA1 /* Expenso.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Expenso.xcdatamodel; sourceTree = "<group>"; };
 		6AA0D9A021DF6DB600AEEEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AA0D9A321DF6DB600AEEEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AA0D9A521DF6DB600AEEEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA0D9AB21DF729500AEEEA1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6AA0D9B021DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrEditExpenceViewModel.swift; sourceTree = "<group>"; };
+		6AA0D9B321DF77D100AEEEA1 /* AddOrEditExpenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrEditExpenceViewController.swift; sourceTree = "<group>"; };
+		6AA0D9B721DF792100AEEEA1 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		6AA0D9BB21DF85A300AEEEA1 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		6AA0D9BD21DF86F700AEEEA1 /* TrasactionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionImageCell.swift; sourceTree = "<group>"; };
+		6AA0D9BF21DF872100AEEEA1 /* TrasactionCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionCategoryCell.swift; sourceTree = "<group>"; };
+		6AA0D9C121DF881100AEEEA1 /* TrasactionDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionDescriptionCell.swift; sourceTree = "<group>"; };
+		6AA0D9C321DF88D100AEEEA1 /* TrasactionDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionDateCell.swift; sourceTree = "<group>"; };
+		6AA0D9C521DF896500AEEEA1 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		6AA0D9CB21DF911800AEEEA1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		6AA0D9CD21DF91DD00AEEEA1 /* AllCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoryViewModel.swift; sourceTree = "<group>"; };
+		6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +83,8 @@
 		6AA0D99521DF6DB500AEEEA1 /* Expenso */ = {
 			isa = PBXGroup;
 			children = (
+				6AA0D9AD21DF768A00AEEEA1 /* MVVM */,
 				6AA0D99621DF6DB500AEEEA1 /* AppDelegate.swift */,
-				6AA0D99821DF6DB500AEEEA1 /* ViewController.swift */,
 				6AA0D99A21DF6DB500AEEEA1 /* Main.storyboard */,
 				6AA0D9A021DF6DB600AEEEA1 /* Assets.xcassets */,
 				6AA0D9A221DF6DB600AEEEA1 /* LaunchScreen.storyboard */,
@@ -68,6 +92,98 @@
 				6AA0D99D21DF6DB500AEEEA1 /* Expenso.xcdatamodeld */,
 			);
 			path = Expenso;
+			sourceTree = "<group>";
+		};
+		6AA0D9AD21DF768A00AEEEA1 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9C721DF90C900AEEEA1 /* Category */,
+				6AA0D9B621DF78F800AEEEA1 /* Overview */,
+				6AA0D9B521DF78ED00AEEEA1 /* Transactions */,
+				6AA0D9AE21DF769A00AEEEA1 /* AddOrEditExpense */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		6AA0D9AE21DF769A00AEEEA1 /* AddOrEditExpense */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B221DF777D00AEEEA1 /* View */,
+				6AA0D9AF21DF76D800AEEEA1 /* ViewModel */,
+			);
+			path = AddOrEditExpense;
+			sourceTree = "<group>";
+		};
+		6AA0D9AF21DF76D800AEEEA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B021DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6AA0D9B221DF777D00AEEEA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B321DF77D100AEEEA1 /* AddOrEditExpenceViewController.swift */,
+				6AA0D9BB21DF85A300AEEEA1 /* TextFieldCell.swift */,
+				6AA0D9BD21DF86F700AEEEA1 /* TrasactionImageCell.swift */,
+				6AA0D9BF21DF872100AEEEA1 /* TrasactionCategoryCell.swift */,
+				6AA0D9C121DF881100AEEEA1 /* TrasactionDescriptionCell.swift */,
+				6AA0D9C321DF88D100AEEEA1 /* TrasactionDateCell.swift */,
+				6AA0D9C521DF896500AEEEA1 /* DatePickerCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA0D9B521DF78ED00AEEEA1 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		6AA0D9B621DF78F800AEEEA1 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B721DF792100AEEEA1 /* OverviewViewController.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		6AA0D9C721DF90C900AEEEA1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9CA21DF90FF00AEEEA1 /* Model */,
+				6AA0D9C921DF90F700AEEEA1 /* ViewModel */,
+				6AA0D9C821DF90F100AEEEA1 /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6AA0D9C821DF90F100AEEEA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AA0D9C921DF90F700AEEEA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9CD21DF91DD00AEEEA1 /* AllCategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6AA0D9CA21DF90FF00AEEEA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9CB21DF911800AEEEA1 /* Category.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +258,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA0D9C021DF872100AEEEA1 /* TrasactionCategoryCell.swift in Sources */,
+				6AA0D9BA21DF79DE00AEEEA1 /* TransactionsViewController.swift in Sources */,
 				6AA0D99F21DF6DB500AEEEA1 /* Expenso.xcdatamodeld in Sources */,
-				6AA0D99921DF6DB500AEEEA1 /* ViewController.swift in Sources */,
+				6AA0D9B421DF77D100AEEEA1 /* AddOrEditExpenceViewController.swift in Sources */,
+				6AA0D9C421DF88D100AEEEA1 /* TrasactionDateCell.swift in Sources */,
+				6AA0D9C221DF881100AEEEA1 /* TrasactionDescriptionCell.swift in Sources */,
 				6AA0D99721DF6DB500AEEEA1 /* AppDelegate.swift in Sources */,
+				6AA0D9B121DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift in Sources */,
+				6AA0D9BE21DF86F700AEEEA1 /* TrasactionImageCell.swift in Sources */,
+				6AA0D9CC21DF911800AEEEA1 /* Category.swift in Sources */,
+				6AA0D9BC21DF85A300AEEEA1 /* TextFieldCell.swift in Sources */,
+				6AA0D9B821DF792100AEEEA1 /* OverviewViewController.swift in Sources */,
+				6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */,
+				6AA0D9C621DF896500AEEEA1 /* DatePickerCell.swift in Sources */,
+				6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
