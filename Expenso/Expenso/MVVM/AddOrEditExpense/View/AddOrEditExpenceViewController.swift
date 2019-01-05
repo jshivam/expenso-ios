@@ -13,6 +13,10 @@ class AddOrEditExpenceViewController: UITableViewController {
     let viewModel = AddOrEditExpenceViewModel()
     
     var cat: Category?
+    var amount: String?
+    var date = Date()
+    var min = aYearAgoFromDate()
+    var max = aYearAfterFromDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,18 @@ class AddOrEditExpenceViewController: UITableViewController {
             cell.textLabel?.text = "Category"
             cell.detailTextLabel?.text = cat?.rawValue
             return cell
+        case .Amount:
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionAmountCell", for: indexPath) as! TrasactionAmountCell
+        cell.textfield.delegate = self
+        cell.textfield.text = amount
+        return cell
+            
+        case .Date:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDateCell", for: indexPath) as! TrasactionDateCell
+//            cell.textfield.delegate = self
+//            cell.textfield.text = date.dateString
+            cell.date = (min: min, current: date, max: max)
+            return cell
         }
     }
     
@@ -66,5 +82,11 @@ class AddOrEditExpenceViewController: UITableViewController {
         default:
             break
         }
+    }
+}
+
+extension AddOrEditExpenceViewController: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        amount = textField.text
     }
 }

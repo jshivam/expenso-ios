@@ -9,9 +9,9 @@
 import Foundation
 
 enum AddExpenceFormType {
-    case Image, Category
+    case Image, Category, Amount, Date
 }
 
 class AddOrEditExpenceViewModel {
-    let items: [[AddExpenceFormType]] = [[.Image], [.Category]]
+    let items: [[AddExpenceFormType]] = [[.Image], [.Category], [.Amount, .Date]]
 }
