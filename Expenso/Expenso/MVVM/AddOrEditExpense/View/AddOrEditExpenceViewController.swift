@@ -74,7 +74,16 @@ class AddOrEditExpenceViewController: UITableViewController {
     }
     
     @objc func onSaveTapped(){
-        guard let cat = cat, let amount = amount, let image = image, !amount.isEmpty  else { return }
+        self.view.endEditing(true)
+        guard let cat = cat, let amount = amount, let amountInDouble = Double(amount), let image = image, let data = image.pngData() as NSData?, !amount.isEmpty else { return }
+        let transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)
+        transaction.amount = amountInDouble
+        transaction.icon = data
+        transaction.category = cat.rawValue
+        transaction.details = ""
+        transaction.date = date as NSDate
+        transaction.createdAt = Date() as NSDate
+        CoreDataManager.sharedInstance.saveContext()
     }
 }
 
@@ -110,7 +119,6 @@ extension AddOrEditExpenceViewController
             return cell
         case .Date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDateCell", for: indexPath) as! TrasactionDateCell
-            cell.textfield.delegate = self
             cell.setDate(date)
             cell.dateCompletionHandler = {[weak self](date) in self?.didSelectDate(date)}
             return cell
@@ -144,7 +152,7 @@ extension AddOrEditExpenceViewController: UIImagePickerControllerDelegate, UINav
             return
         }
         
-        picker.dismiss(animated: false, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         processImage(chosenImage)
     }
     func processImage(_ image: UIImage){
