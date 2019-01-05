@@ -20,6 +20,7 @@ class TrasactionDateCell: UITableViewCell {
     }()
     
     private let toolbar = DoneToolbar()
+    var dateCompletionHandler: ((Date) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,5 +45,6 @@ class TrasactionDateCell: UITableViewCell {
     @objc func dateChange(sender: UIDatePicker)  {
         datePicker.date = sender.date
         textfield.text = sender.date.stringValue
+        dateCompletionHandler?(sender.date)
     }
 }

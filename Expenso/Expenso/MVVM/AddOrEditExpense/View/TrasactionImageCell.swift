@@ -10,6 +10,7 @@ import UIKit
 
 class TrasactionImageCell: UITableViewCell {
     @IBOutlet private weak var transactionImageView: UIImageView!
+    var tapHandler:(() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +23,15 @@ class TrasactionImageCell: UITableViewCell {
         transactionImageView.addGestureRecognizer(tap)
     }
 
-    @objc private func onImageViewTapped(_ sender: UITapGestureRecognizer)
-    {
-        print("onImageViewTapped")
+    func setImage(_ image: UIImage?) {
+        if let image = image {
+            transactionImageView.image = image
+        }else{
+            transactionImageView.image = UIImage.init(named: "placeholder")
+        }
+    }
+    
+    @objc private func onImageViewTapped(_ sender: UITapGestureRecognizer){
+        tapHandler?()
     }
 }
