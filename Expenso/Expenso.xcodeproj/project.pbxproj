@@ -29,7 +29,7 @@
 		6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CD21DF91DD00AEEEA1 /* AllCategoryViewModel.swift */; };
 		6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */; };
 		6AA0D9D221DFC5FA00AEEEA1 /* DoneToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */; };
-		6AB257FF21E088DC00D6A42D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB257FE21E088DC00D6A42D /* DateUtils.swift */; };
+		6AB257FF21E088DC00D6A42D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB257FE21E088DC00D6A42D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,7 @@
 		6AA0D9CD21DF91DD00AEEEA1 /* AllCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoryViewModel.swift; sourceTree = "<group>"; };
 		6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneToolbar.swift; sourceTree = "<group>"; };
-		6AB257FE21E088DC00D6A42D /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		6AB257FE21E088DC00D6A42D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +208,7 @@
 		6AB257FD21E088AE00D6A42D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6AB257FE21E088DC00D6A42D /* DateUtils.swift */,
+				6AB257FE21E088DC00D6A42D /* Utils.swift */,
 				6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */,
 			);
 			path = Utils;
@@ -302,7 +302,7 @@
 				6AA0D9CC21DF911800AEEEA1 /* Category.swift in Sources */,
 				6AA0D9BC21DF85A300AEEEA1 /* TrasactionAmountCell.swift in Sources */,
 				6AA0D9B821DF792100AEEEA1 /* OverviewViewController.swift in Sources */,
-				6AB257FF21E088DC00D6A42D /* DateUtils.swift in Sources */,
+				6AB257FF21E088DC00D6A42D /* Utils.swift in Sources */,
 				6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */,
 				6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */,
 			);

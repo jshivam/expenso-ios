@@ -12,11 +12,6 @@ class AddOrEditExpenceViewController: UITableViewController {
 
     let viewModel = AddOrEditExpenceViewModel()
     
-    var cat: Category?
-    var amount: String?
-    var date = Date()
-    var image: UIImage?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableView.automaticDimension;
@@ -59,31 +54,25 @@ class AddOrEditExpenceViewController: UITableViewController {
     }
     
     func pushCategoriesViewController(){
-        let vm = AllCategoryViewModel.init()
-        vm.selectedItem = cat
-        let vc = CategoriesViewController.init(viewModel: vm) { [weak self] (controller, category) in
+        let viewModel = AllCategoryViewModel.init()
+        viewModel.selectedItem = Category.init(rawValue: self.viewModel.transaction.category ?? "")
+        let vc = CategoriesViewController.init(viewModel: viewModel) { [weak self] (controller, category) in
             controller.navigationController?.popViewController(animated: true)
-            self?.cat = category
+            self?.viewModel.transaction.category = category.rawValue
             self?.tableView.reloadData()
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func didSelectDate(_ date: Date) {
-        self.date = date
+        self.viewModel.transaction.date = date as NSDate
     }
     
     @objc func onSaveTapped(){
         self.view.endEditing(true)
-        guard let cat = cat, let amount = amount, let amountInDouble = Double(amount), let image = image, let data = image.pngData() as NSData?, !amount.isEmpty else { return }
-        let transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)
-        transaction.amount = amountInDouble
-        transaction.icon = data
-        transaction.category = cat.rawValue
-        transaction.details = ""
-        transaction.date = date as NSDate
-        transaction.createdAt = Date() as NSDate
-        CoreDataManager.sharedInstance.saveContext()
+        guard viewModel.isTransactionSaveEligible else { return }
+        viewModel.saveTransaction()
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -104,22 +93,22 @@ extension AddOrEditExpenceViewController
         switch item {
         case .Image:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionImageCell", for: indexPath) as! TrasactionImageCell
-            cell.setImage(image)
+            cell.setImage(viewModel.iconImage())
             cell.tapHandler = {[weak self]() in self?.hadleImageTap()}
             return cell
         case .Category:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionCategoryCell", for: indexPath)
             cell.textLabel?.text = "Category"
-            cell.detailTextLabel?.text = cat?.rawValue
+            cell.detailTextLabel?.text = viewModel.transaction.category
             return cell
         case .Amount:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionAmountCell", for: indexPath) as! TrasactionAmountCell
             cell.textfield.delegate = self
-            cell.textfield.text = amount
+            cell.textfield.text = String(viewModel.transaction.amount)
             return cell
         case .Date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDateCell", for: indexPath) as! TrasactionDateCell
-            cell.setDate(date)
+            cell.setDate((viewModel.transaction.date ?? Date() as NSDate) as Date)
             cell.dateCompletionHandler = {[weak self](date) in self?.didSelectDate(date)}
             return cell
         }
@@ -140,7 +129,7 @@ extension AddOrEditExpenceViewController
 
 extension AddOrEditExpenceViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        amount = textField.text
+        viewModel.transaction.amount = Double(textField.text ?? "") ?? 0.0
     }
 }
 
@@ -155,8 +144,10 @@ extension AddOrEditExpenceViewController: UIImagePickerControllerDelegate, UINav
         picker.dismiss(animated: true, completion: nil)
         processImage(chosenImage)
     }
+    
     func processImage(_ image: UIImage){
-        self.image = image
+        let newImage = image.resizeImage()
+        viewModel.transaction.icon = newImage.pngData() as NSData?
         tableView.reloadData()
     }
 }

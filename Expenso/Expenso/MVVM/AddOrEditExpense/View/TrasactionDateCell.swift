@@ -35,7 +35,7 @@ class TrasactionDateCell: UITableViewCell {
         }
     }
     
-    func setDate(_ date: Date)  {
+    func setDate(_ date: Date = Date())  {
         datePicker.minimumDate = aYearAgoFromDate(date)
         datePicker.date = date
         datePicker.maximumDate = aYearAfterFromDate(date)
