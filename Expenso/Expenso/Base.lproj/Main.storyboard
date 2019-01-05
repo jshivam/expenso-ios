@@ -166,7 +166,34 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ko3-dN-uOu" id="YUS-1j-BbA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8j-Rd-Qxw">
+                                            <rect key="frame" x="32" y="19" width="112.5" height="62"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZU-0D-iq8">
+                                            <rect key="frame" x="152.5" y="19" width="198.5" height="62"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="u8j-Rd-Qxw" firstAttribute="leading" secondItem="YUS-1j-BbA" secondAttribute="leadingMargin" constant="16" id="1hw-vs-Y5w"/>
+                                        <constraint firstItem="u8j-Rd-Qxw" firstAttribute="width" secondItem="YUS-1j-BbA" secondAttribute="width" multiplier="0.3" id="5go-xD-0Vy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="YZU-0D-iq8" secondAttribute="trailing" constant="8" id="JG6-2D-dzD"/>
+                                        <constraint firstItem="YZU-0D-iq8" firstAttribute="bottom" secondItem="u8j-Rd-Qxw" secondAttribute="bottom" id="Qrs-LX-Nru"/>
+                                        <constraint firstItem="YZU-0D-iq8" firstAttribute="leading" secondItem="u8j-Rd-Qxw" secondAttribute="trailing" constant="8" id="Vjt-eP-8mg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="u8j-Rd-Qxw" secondAttribute="bottom" constant="8" id="Yk6-HZ-tPf"/>
+                                        <constraint firstItem="u8j-Rd-Qxw" firstAttribute="top" secondItem="YUS-1j-BbA" secondAttribute="topMargin" constant="8" id="d4k-7S-rEF"/>
+                                        <constraint firstItem="YZU-0D-iq8" firstAttribute="height" secondItem="u8j-Rd-Qxw" secondAttribute="height" id="mSc-a0-klv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textfield" destination="YZU-0D-iq8" id="9CB-ai-493"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

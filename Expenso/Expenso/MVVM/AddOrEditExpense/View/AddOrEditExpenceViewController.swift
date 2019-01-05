@@ -15,8 +15,6 @@ class AddOrEditExpenceViewController: UITableViewController {
     var cat: Category?
     var amount: String?
     var date = Date()
-    var min = aYearAgoFromDate()
-    var max = aYearAfterFromDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +56,8 @@ class AddOrEditExpenceViewController: UITableViewController {
             
         case .Date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDateCell", for: indexPath) as! TrasactionDateCell
-//            cell.textfield.delegate = self
-//            cell.textfield.text = date.dateString
-            cell.date = (min: min, current: date, max: max)
+            cell.textfield.delegate = self
+            cell.setDate(date)
             return cell
         }
     }

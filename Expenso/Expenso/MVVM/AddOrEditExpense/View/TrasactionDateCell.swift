@@ -10,6 +10,7 @@ import UIKit
 
 class TrasactionDateCell: UITableViewCell {
 
+    @IBOutlet weak var textfield: UITextField!
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker.init()
         picker.backgroundColor = UIColor.white
@@ -18,22 +19,30 @@ class TrasactionDateCell: UITableViewCell {
         return picker
     }()
     
-    var date: (min: Date?, current: Date, max: Date?)?{
-        didSet{
-            datePicker.minimumDate = date?.min
-            datePicker.date = date?.current ?? Date()
-            datePicker.maximumDate = date?.max
+    private let toolbar = DoneToolbar()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
+    
+    func setup(){
+        textfield.inputAccessoryView = toolbar
+        textfield.inputView = datePicker
+        toolbar.doneButtonHandler = {[weak self] (bar: DoneToolbar) -> Void in
+            self?.textfield.endEditing(true)
         }
     }
-        
-//    override func setup(){
-//        super.setup()
-//        titleLabel.text = "Date"
-//        textfield.inputView = datePicker
-//    }
+    
+    func setDate(_ date: Date)  {
+        datePicker.minimumDate = aYearAgoFromDate(date)
+        datePicker.date = date
+        datePicker.maximumDate = aYearAfterFromDate(date)
+        textfield.text = date.stringValue
+    }
     
     @objc func dateChange(sender: UIDatePicker)  {
         datePicker.date = sender.date
-//        textfield.text = sender.date.dateString
+        textfield.text = sender.date.stringValue
     }
 }

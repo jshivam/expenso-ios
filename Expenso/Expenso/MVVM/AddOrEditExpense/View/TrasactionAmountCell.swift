@@ -11,7 +11,6 @@ import UIKit
 class TrasactionAmountCell: UITableViewCell {
 
     @IBOutlet weak var textfield: UITextField!
-    @IBOutlet weak var label: UILabel!
     
     private let toolbar = DoneToolbar()
     

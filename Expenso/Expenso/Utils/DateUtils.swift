@@ -21,9 +21,9 @@ func aYearAfterFromDate(_ date: Date = Date()) -> Date?{
 }
 
 extension Date{
-    var dateString: String {
+    var stringValue: String {
         let formatter = DateFormatter.init()
-        formatter.dateFormat = "dd/MM/YYYY HH:mm:ss.SSS"
+        formatter.dateFormat = "dd/MM/YYYY HH:mm"
         return formatter.string(from: self)
     }
 }
