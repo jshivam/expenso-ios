@@ -34,18 +34,6 @@ enum DateFormat: String {
 
 extension Date{
     
-//    var stringValue: String {
-//        let formatter = DateFormatter.init()
-//        formatter.dateFormat = "MMM dd YYYY"
-//        return formatter.string(from: self)
-//    }
-//    
-//    var readableDate: String{
-//        let formatter = DateFormatter.init()
-//        formatter.dateFormat = "MMM dd"
-//        return formatter.string(from: self)
-//    }
-    
     var aYearAgo: Date {
         let year = Calendar.current.date(byAdding: .year, value: -1, to: self)
         return year!

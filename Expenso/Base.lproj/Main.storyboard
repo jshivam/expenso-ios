@@ -17,10 +17,34 @@
                     <view key="view" contentMode="scaleToFill" id="rsx-Tf-hpR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No transactions added yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvv-t7-Oo2">
+                                <rect key="frame" x="86.5" y="323" width="202" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcI-dk-Qkh" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Op5-oA-AT8" firstAttribute="bottom" secondItem="WcI-dk-Qkh" secondAttribute="bottom" id="AgT-i5-RFO"/>
+                            <constraint firstItem="Op5-oA-AT8" firstAttribute="trailing" secondItem="WcI-dk-Qkh" secondAttribute="trailing" id="HpS-l5-8MP"/>
+                            <constraint firstItem="WcI-dk-Qkh" firstAttribute="top" secondItem="Op5-oA-AT8" secondAttribute="top" id="LCp-vp-24n"/>
+                            <constraint firstItem="Dvv-t7-Oo2" firstAttribute="centerY" secondItem="rsx-Tf-hpR" secondAttribute="centerY" id="gST-Ho-6xg"/>
+                            <constraint firstItem="WcI-dk-Qkh" firstAttribute="leading" secondItem="Op5-oA-AT8" secondAttribute="leading" id="pn4-tF-f0I"/>
+                            <constraint firstItem="Dvv-t7-Oo2" firstAttribute="centerX" secondItem="rsx-Tf-hpR" secondAttribute="centerX" id="w0Q-8A-0fj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Op5-oA-AT8"/>
                     </view>
                     <navigationItem key="navigationItem" id="GRm-c0-P5b"/>
+                    <connections>
+                        <outlet property="chartView" destination="WcI-dk-Qkh" id="AOR-eg-uGY"/>
+                        <outlet property="errorLabel" destination="Dvv-t7-Oo2" id="96R-kZ-K6l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3N-Hy-2eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

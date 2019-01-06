@@ -50,9 +50,14 @@ class TransactionsViewController: UIViewController {
     }
     
     func monthlyExpense() -> String {
-        let allMonthlyTransactions = frc.fetchedObjects ?? []
+        let allMonthlyTransactions = transactionsForTheMonth()
         let allMonthlyExpense = allMonthlyTransactions.reduce(0) { $0 + $1.amount }
         return String(allMonthlyExpense)
+    }
+    
+    func transactionsForTheMonth() -> [Transaction] {
+        let allMonthlyTransactions = frc.fetchedObjects ?? []
+        return allMonthlyTransactions
     }
     
     func month() -> String {

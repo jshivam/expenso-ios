@@ -79,6 +79,11 @@ class TransactionsPageViewController: UIViewController {
         }
         return nil
     }
+    
+    func transactionDate() -> Date? {
+        guard let viewController = pageViewController.viewControllers?.first as? TransactionsViewController else {return nil}
+        return viewController.date
+    }
 }
 
 extension TransactionsPageViewController: UIPageViewControllerDataSource,UIPageViewControllerDelegate
@@ -102,14 +107,6 @@ extension TransactionsPageViewController: UIPageViewControllerDataSource,UIPageV
         guard let viewController = pageViewController.viewControllers?.first as? TransactionsViewController else {return}
         currentIndex = viewController.currentIndex
         updateView(date: viewController.month(), total: viewController.monthlyExpense())
-    }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
+    }    
 }
 
