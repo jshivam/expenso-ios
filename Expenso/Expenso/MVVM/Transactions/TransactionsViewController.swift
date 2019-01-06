@@ -11,6 +11,7 @@ import CoreData
 
 class TransactionsViewController: UIViewController {
 
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     fileprivate lazy var frc: NSFetchedResultsController<Transaction> = {
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
@@ -39,6 +40,13 @@ class TransactionsViewController: UIViewController {
         
         let save = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = save
+        updateView()
+    }
+    
+    func updateView(){
+        let count = frc.sections?.count ?? 0
+        tableView.isHidden = count == 0
+        errorLabel.isHidden = count > 0
     }
     
     @objc func addTapped() {
@@ -69,7 +77,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return frc.sections?.count ?? 0
+        let count = frc.sections?.count ?? 0
+        return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,5 +157,6 @@ extension TransactionsViewController: NSFetchedResultsControllerDelegate{
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        tableView.endUpdates()
         tableView.reloadData()
+        updateView()
     }
 }

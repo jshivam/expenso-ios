@@ -14,7 +14,7 @@ class TrasactionDateCell: UITableViewCell {
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker.init()
         picker.backgroundColor = UIColor.white
-        picker.datePickerMode = .dateAndTime
+        picker.datePickerMode = .date
         picker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
         return picker
     }()
@@ -36,9 +36,9 @@ class TrasactionDateCell: UITableViewCell {
     }
     
     func setDate(_ date: Date = Date())  {
-        datePicker.minimumDate = aYearAgoFromDate(date)
+        datePicker.minimumDate = aYearAgoFromDate()
         datePicker.date = date
-        datePicker.maximumDate = aYearAfterFromDate(date)
+        datePicker.maximumDate = aYearAfterFromDate()
         textfield.text = date.stringValue
     }
     

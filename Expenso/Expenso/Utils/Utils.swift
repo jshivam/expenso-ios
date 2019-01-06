@@ -39,7 +39,7 @@ func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UI
 extension Date{
     var stringValue: String {
         let formatter = DateFormatter.init()
-        formatter.dateFormat = "dd/MM/YYYY HH:mm"
+        formatter.dateFormat = "MMM dd YYYY"
         return formatter.string(from: self)
     }
     
