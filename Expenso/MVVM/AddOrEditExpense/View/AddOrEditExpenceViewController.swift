@@ -14,8 +14,6 @@ class AddOrEditExpenceViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = UITableView.automaticDimension;
-        self.tableView.estimatedRowHeight = 50.0;
         
         let save = UIBarButtonItem.init(title: "Save", style: .done, target: self, action: #selector(onSaveTapped))
         navigationItem.rightBarButtonItem = save
@@ -107,6 +105,11 @@ extension AddOrEditExpenceViewController
         return viewModel.items[section].count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = viewModel.items[indexPath.section][indexPath.row]
+        return viewModel.height(for: item)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let item = viewModel.items[indexPath.section][indexPath.row]
@@ -124,7 +127,7 @@ extension AddOrEditExpenceViewController
         case .Amount:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionAmountCell", for: indexPath) as! TrasactionAmountCell
             cell.textfield.delegate = self
-            cell.textfield.text = String(viewModel.transaction.amount)
+            cell.textfield.text = viewModel.amount()
             return cell
         case .Date:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDateCell", for: indexPath) as! TrasactionDateCell
@@ -181,7 +184,7 @@ extension AddOrEditExpenceViewController{
     
     private func showErrorAlertOnSave() {
         let message = "Categry and Amount are mandotary!!"
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Okay", style: .default) {(_) in }
         alert.addAction(confirmAction)
         present(alert, animated: true, completion: nil)

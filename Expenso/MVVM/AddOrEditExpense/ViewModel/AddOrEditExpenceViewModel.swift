@@ -32,9 +32,27 @@ class AddOrEditExpenceViewModel {
         return placehoderImage
     }
     
+    func amount() -> String? {
+        if transaction.amount.isZero{
+            return ""
+        }
+        return String(transaction.amount)
+    }
+    
     func saveTransaction()  {
         transaction.createdAt = Date() as NSDate
         transaction.date = (transaction.date == nil) ? Date() as NSDate : transaction.date
         CoreDataManager.sharedInstance.saveContext()
+    }
+    
+    func height(for form: AddExpenceFormType) -> CGFloat {
+        switch form {
+        case .Image:
+            return 72
+        case .Category, .Amount, .Date :
+            return 52
+        case .Detail:
+            return 100
+        }
     }
 }
