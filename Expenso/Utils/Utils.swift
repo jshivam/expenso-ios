@@ -28,6 +28,10 @@ func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UI
     }
 }
 
+func CenteredOrigin(x: CGFloat, y: CGFloat) -> CGFloat {
+    return floor((x - y)/2.0)
+}
+
 enum DateFormat: String {
     case MMM_dd_YYYY = "MMM dd YYYY"
     case MMM_dd = "MMM dd"

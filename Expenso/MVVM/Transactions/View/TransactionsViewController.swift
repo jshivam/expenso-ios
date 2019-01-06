@@ -57,17 +57,10 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionCell", for: indexPath) as! TrasactionCell
         let transaction = viewModel.frc.object(at: indexPath)
-        cell.textLabel?.text = transaction.category
-        cell.detailTextLabel?.text = String(transaction.amount)
-        if let data = transaction.icon {
-            setImageWith(data: data, indexPath: indexPath) { [weak cell] (image, ip) in
-                if indexPath == ip { cell?.imageView?.image = image }
-            }
-        }else{
-            cell.imageView?.image = placehoderImage
-        }
+        cell.set(category: transaction.category, amount: transaction.amount)
+        cell.set(imageData: transaction.icon, indexpath: indexPath)
         
         return cell
     }

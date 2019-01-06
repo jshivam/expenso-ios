@@ -36,6 +36,7 @@
 		6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */; };
 		6AA0D9D221DFC5FA00AEEEA1 /* DoneToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */; };
 		6AB257FF21E088DC00D6A42D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB257FE21E088DC00D6A42D /* Utils.swift */; };
+		6AF345F021E2BB8700927448 /* TrasactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF345EF21E2BB8700927448 /* TrasactionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		6AA0D9CF21DF937600AEEEA1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneToolbar.swift; sourceTree = "<group>"; };
 		6AB257FE21E088DC00D6A42D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6AF345EF21E2BB8700927448 /* TrasactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasactionCell.swift; sourceTree = "<group>"; };
 		7B78BF96038A73AB2E406F41 /* Pods-Expenso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenso.release.xcconfig"; path = "Pods/Target Support Files/Pods-Expenso/Pods-Expenso.release.xcconfig"; sourceTree = "<group>"; };
 		A30FEDF7DF0C1542D16C59E2 /* Pods-Expenso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenso.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Expenso/Pods-Expenso.debug.xcconfig"; sourceTree = "<group>"; };
 		E3DD3B9C0D395E9F56472E7E /* libPods-Expenso.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expenso.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */,
+				6AF345EF21E2BB8700927448 /* TrasactionCell.swift */,
 				6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */,
 			);
 			path = View;
@@ -391,6 +394,7 @@
 				6A25479721E1E76100DC4E11 /* Transaction+CoreDataClass.swift in Sources */,
 				6A3D884221E1214D004B6BA4 /* CoreDataManager.swift in Sources */,
 				6AA0D9C421DF88D100AEEEA1 /* TrasactionDateCell.swift in Sources */,
+				6AF345F021E2BB8700927448 /* TrasactionCell.swift in Sources */,
 				6AA0D9D221DFC5FA00AEEEA1 /* DoneToolbar.swift in Sources */,
 				6A15ED8421E2950500CBF275 /* OverviewViewModel.swift in Sources */,
 				6A15ED8821E29A9900CBF275 /* TransactionsPageViewModel.swift in Sources */,

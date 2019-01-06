@@ -72,6 +72,6 @@ class TransactionsViewModel {
     }
     
     func heightForRow() -> CGFloat {
-        return 48
+        return 52
     }
 }
