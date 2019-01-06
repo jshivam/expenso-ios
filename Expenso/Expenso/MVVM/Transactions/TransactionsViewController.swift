@@ -16,7 +16,7 @@ class TransactionsViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
         let context = CoreDataManager.sharedInstance.workerManagedContext
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "category", ascending: true)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -58,6 +58,11 @@ class TransactionsViewController: UIViewController {
 
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
 {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = frc.sections?[section]
+        return sectionInfo?.name ?? ""
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return frc.sections?.count ?? 0
     }
@@ -76,9 +81,9 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         let transaction = frc.object(at: indexPath)
         cell.textLabel?.text = transaction.category
         cell.detailTextLabel?.text = String(transaction.amount)
-        setImageWith(data: transaction.icon, indexPath: indexPath) { [weak cell] (image, ip) in
+//        setImageWith(data: transaction.icon, indexPath: indexPath) { [weak cell] (image, ip) in
 //            if indexPath == ip { cell?.imageView?.image = image }
-        }
+//        }
         return cell
     }
     

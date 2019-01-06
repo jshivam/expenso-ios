@@ -25,6 +25,12 @@ extension Transaction {
     @NSManaged public var createdAt: NSDate?
 }
 
+extension Transaction{
+    func newCat() -> String {
+        return String(self.category?.suffix(1) ?? "N/A")
+    }
+}
+
 //extension Transaction: NSCopying
 //{
 //    public func copy(with zone: NSZone? = nil) -> Any {
