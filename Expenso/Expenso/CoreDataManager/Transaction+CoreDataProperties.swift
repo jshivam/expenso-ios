@@ -26,6 +26,6 @@ extension Transaction {
     
     @objc public var newCat: String?{
         let date = self.date as Date?
-        return date?.readableDate
+        return date?.stringValue(.MMM_dd)
     }
 }

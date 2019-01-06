@@ -13,10 +13,13 @@ class TransactionsViewController: UIViewController {
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    fileprivate lazy var frc: NSFetchedResultsController<Transaction> = {
+    var expenseUpdateHandler: ((TransactionsViewController, String, String) -> Void)?
+    var currentIndex = 0
+    var date: Date = Date()
+    
+    private lazy var frc: NSFetchedResultsController<Transaction> = {
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
         let context = CoreDataManager.sharedInstance.workerManagedContext
-        let date = Date()
         let predicate = NSPredicate(format: "date >= %@ && date <= %@", date.startOfMonth() as CVarArg, date.endOfMonth() as CVarArg)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         fetchRequest.predicate = predicate
@@ -36,11 +39,8 @@ class TransactionsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        
-        let save = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = save
-        updateView()
+        tableView.tableFooterView = UIView()        
+        updateView()        
     }
     
     func updateView(){
@@ -49,20 +49,19 @@ class TransactionsViewController: UIViewController {
         errorLabel.isHidden = count > 0
     }
     
-    @objc func addTapped() {
-        pushAddOrEditExpenceViewController(transaction: nil)
+    func monthlyExpense() -> String {
+        let allMonthlyTransactions = frc.fetchedObjects ?? []
+        let allMonthlyExpense = allMonthlyTransactions.reduce(0) { $0 + $1.amount }
+        return String(allMonthlyExpense)
     }
     
-    func pushAddOrEditExpenceViewController(transaction: Transaction?)
-    {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "AddOrEditExpenceViewController") as!AddOrEditExpenceViewController
-        if let transaction = transaction, let managedObject = CoreDataManager.sharedInstance.networkManagedContext.object(with: transaction.objectID) as? Transaction  {
-            let viewModel = AddOrEditExpenceViewModel.init(transaction: managedObject)
-            controller.viewModel = viewModel
-        }else{
-            let viewModel = AddOrEditExpenceViewModel()
-            controller.viewModel = viewModel
-        }
+    func month() -> String {
+        let month = date.stringValue(.MMM_YYYY)
+        return month
+    }
+        
+    func pushAddOrEditExpenceViewController(transaction: Transaction?){
+        let controller = addOrEditExpenceViewController(transaction: transaction)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -70,10 +69,9 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let sectionInfo = frc.sections?[section]{
-            return sectionInfo.name
-        }
-        return "No date"
+        guard let sectionInfo = frc.sections?[section], let allRows = sectionInfo.objects as? [Transaction] else {return nil}
+        let expenseOfTheDay = allRows.reduce(0) { $0 + $1.amount }
+        return "\(sectionInfo.name) | Expense: \(expenseOfTheDay)"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -158,5 +156,6 @@ extension TransactionsViewController: NSFetchedResultsControllerDelegate{
 //        tableView.endUpdates()
         tableView.reloadData()
         updateView()
+        expenseUpdateHandler?(self, month(), monthlyExpense())
     }
 }

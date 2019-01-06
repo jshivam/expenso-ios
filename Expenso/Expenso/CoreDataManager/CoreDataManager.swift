@@ -79,10 +79,10 @@ class CoreDataManager {
         return object as! T
     }
     
-    func fetchData<T: NSManagedObject>(from classs: T.Type) -> [T]  {
+    func fetchData<T: NSManagedObject>(from classs: T.Type, predicate: NSPredicate? = nil) -> [T]  {
         let context = workerManagedContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: className(classs))
-        request.returnsObjectsAsFaults = false
+        request.predicate = predicate
         do {
             let result = try context.fetch(request)
             return result as! [T]
@@ -98,6 +98,9 @@ class CoreDataManager {
     }
 }
 
+extension CoreDataManager
+{
+}
 
 extension NSManagedObjectContext
 {

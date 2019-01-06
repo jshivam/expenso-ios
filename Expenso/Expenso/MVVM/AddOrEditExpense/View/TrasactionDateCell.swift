@@ -36,15 +36,15 @@ class TrasactionDateCell: UITableViewCell {
     }
     
     func setDate(_ date: Date = Date())  {
-        datePicker.minimumDate = aYearAgoFromDate()
+        datePicker.minimumDate = Date().aYearAgo
         datePicker.date = date
-        datePicker.maximumDate = aYearAfterFromDate()
-        textfield.text = date.stringValue
+        datePicker.maximumDate = Date().aYearAfter
+        textfield.text = date.stringValue(.MMM_dd_YYYY)
     }
     
     @objc func dateChange(sender: UIDatePicker)  {
         datePicker.date = sender.date
-        textfield.text = sender.date.stringValue
+        textfield.text = sender.date.stringValue(.MMM_dd_YYYY)
         dateCompletionHandler?(sender.date)
     }
 }

@@ -11,16 +11,6 @@ import UIKit
 
 let calendar = Calendar.current
 
-func aYearAgoFromDate(_ date: Date = Date()) -> Date?{
-    let year = calendar.date(byAdding: .year, value: -1, to: date)
-    return year
-}
-
-func aYearAfterFromDate(_ date: Date = Date()) -> Date?{
-    let year = calendar.date(byAdding: .year, value: 1, to: date)
-    return year
-}
-
 func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UIImage?, IndexPath) -> Void) -> Void
 {
     guard let data = data else {
@@ -36,17 +26,45 @@ func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UI
     }
 }
 
+enum DateFormat: String {
+    case MMM_dd_YYYY = "MMM dd YYYY"
+    case MMM_dd = "MMM dd"
+    case MMM_YYYY = "MMM YYYY"
+}
+
 extension Date{
-    var stringValue: String {
+    
+//    var stringValue: String {
+//        let formatter = DateFormatter.init()
+//        formatter.dateFormat = "MMM dd YYYY"
+//        return formatter.string(from: self)
+//    }
+//    
+//    var readableDate: String{
+//        let formatter = DateFormatter.init()
+//        formatter.dateFormat = "MMM dd"
+//        return formatter.string(from: self)
+//    }
+    
+    var aYearAgo: Date {
+        let year = Calendar.current.date(byAdding: .year, value: -1, to: self)
+        return year!
+    }
+    
+    var aYearAfter: Date {
+        let year = calendar.date(byAdding: .year, value: 1, to: self)
+        return year!
+    }
+    
+    func stringValue(_ format: DateFormat) -> String {
         let formatter = DateFormatter.init()
-        formatter.dateFormat = "MMM dd YYYY"
+        formatter.dateFormat = format.rawValue
         return formatter.string(from: self)
     }
     
-    var readableDate: String{
-        let formatter = DateFormatter.init()
-        formatter.dateFormat = "MMM dd"
-        return formatter.string(from: self)
+    func month(after: Int) -> Date {
+        let month = calendar.date(byAdding: .month, value: after, to: self)
+        return month!
     }
     
     func startOfMonth() -> Date {

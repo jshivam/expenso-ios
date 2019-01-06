@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6A25479721E1E76100DC4E11 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479521E1E76100DC4E11 /* Transaction+CoreDataClass.swift */; };
 		6A25479821E1E76100DC4E11 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479621E1E76100DC4E11 /* Transaction+CoreDataProperties.swift */; };
+		6A25479C21E230C600DC4E11 /* TransactionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */; };
+		6A25479E21E2456C00DC4E11 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479D21E2456C00DC4E11 /* Routers.swift */; };
 		6A3D884221E1214D004B6BA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D884121E1214D004B6BA4 /* CoreDataManager.swift */; };
 		6AA0D99721DF6DB500AEEEA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA0D99621DF6DB500AEEEA1 /* AppDelegate.swift */; };
 		6AA0D99C21DF6DB500AEEEA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA0D99A21DF6DB500AEEEA1 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		6A25479521E1E76100DC4E11 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6A25479621E1E76100DC4E11 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPageViewController.swift; sourceTree = "<group>"; };
+		6A25479D21E2456C00DC4E11 /* Routers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
 		6A3D884121E1214D004B6BA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6AA0D99321DF6DB500AEEEA1 /* Expenso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA0D99621DF6DB500AEEEA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A25479921E22F0F00DC4E11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6A3D884021E12113004B6BA4 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		6AA0D9B521DF78ED00AEEEA1 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				6A25479921E22F0F00DC4E11 /* View */,
 				6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */,
 			);
 			path = Transactions;
@@ -210,6 +223,7 @@
 			children = (
 				6AB257FE21E088DC00D6A42D /* Utils.swift */,
 				6AA0D9D121DFC5FA00AEEEA1 /* DoneToolbar.swift */,
+				6A25479D21E2456C00DC4E11 /* Routers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -302,6 +316,8 @@
 				6AA0D9CC21DF911800AEEEA1 /* Category.swift in Sources */,
 				6AA0D9BC21DF85A300AEEEA1 /* TrasactionAmountCell.swift in Sources */,
 				6AA0D9B821DF792100AEEEA1 /* OverviewViewController.swift in Sources */,
+				6A25479E21E2456C00DC4E11 /* Routers.swift in Sources */,
+				6A25479C21E230C600DC4E11 /* TransactionsPageViewController.swift in Sources */,
 				6AB257FF21E088DC00D6A42D /* Utils.swift in Sources */,
 				6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */,
 				6AA0D9D021DF937600AEEEA1 /* CategoriesViewController.swift in Sources */,
