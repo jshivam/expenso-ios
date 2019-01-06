@@ -10,7 +10,7 @@ import UIKit
 
 class AddOrEditExpenceViewController: UITableViewController {
 
-    let viewModel = AddOrEditExpenceViewModel()
+    var viewModel: AddOrEditExpenceViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,14 @@ class AddOrEditExpenceViewController: UITableViewController {
         
         let save = UIBarButtonItem.init(title: "Save", style: .done, target: self, action: #selector(onSaveTapped))
         navigationItem.rightBarButtonItem = save
+        
+        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem) {
+        CoreDataManager.sharedInstance.networkManagedContext.reset()
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - User Actions

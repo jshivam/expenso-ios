@@ -14,8 +14,11 @@ enum AddExpenceFormType {
 }
 
 class AddOrEditExpenceViewModel {
+    let transaction: Transaction
     let items: [[AddExpenceFormType]] = [[.Image], [.Category], [.Amount, .Date]]
-    var transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)
+    init(transaction: Transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)) {
+        self.transaction = transaction
+    }
     
     var isTransactionSaveEligible: Bool {
         guard let _ = transaction.category, !transaction.amount.isZero else { return false }

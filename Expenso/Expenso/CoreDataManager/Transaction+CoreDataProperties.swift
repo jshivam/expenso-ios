@@ -25,15 +25,15 @@ extension Transaction {
     @NSManaged public var createdAt: NSDate?
 }
 
-extension Transaction: NSCopying
-{
-    public func copy(with zone: NSZone? = nil) -> Any {
-        let transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)
-        transaction.icon = self.icon
-        transaction.category = self.category
-        transaction.details = self.details
-        transaction.date = self.date
-        transaction.createdAt = self.createdAt
-        return transaction
-    }
-}
+//extension Transaction: NSCopying
+//{
+//    public func copy(with zone: NSZone? = nil) -> Any {
+//        let transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)
+//        transaction.icon = self.icon
+//        transaction.category = self.category
+//        transaction.details = self.details
+//        transaction.date = self.date
+//        transaction.createdAt = self.createdAt
+//        return transaction
+//    }
+//}

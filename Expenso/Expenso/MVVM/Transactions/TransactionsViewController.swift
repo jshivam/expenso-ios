@@ -42,9 +42,16 @@ class TransactionsViewController: UIViewController {
         pushAddOrEditExpenceViewController(transaction: nil)
     }
     
-    func pushAddOrEditExpenceViewController(transaction: Transaction?) {
+    func pushAddOrEditExpenceViewController(transaction: Transaction?)
+    {
         let controller = storyboard?.instantiateViewController(withIdentifier: "AddOrEditExpenceViewController") as!AddOrEditExpenceViewController
-        if let transaction = transaction { controller.viewModel.transaction = transaction }
+        if let transaction = transaction, let managedObject = CoreDataManager.sharedInstance.networkManagedContext.object(with: transaction.objectID) as? Transaction  {
+            let viewModel = AddOrEditExpenceViewModel.init(transaction: managedObject)
+            controller.viewModel = viewModel
+        }else{
+            let viewModel = AddOrEditExpenceViewModel()
+            controller.viewModel = viewModel
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 }
