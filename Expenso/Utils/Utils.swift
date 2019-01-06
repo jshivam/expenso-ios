@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 let calendar = Calendar.current
+let rootTabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
 
 func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UIImage?, IndexPath) -> Void) -> Void
 {
