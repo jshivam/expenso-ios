@@ -89,8 +89,8 @@ class AddOrEditExpenceViewController: UITableViewController {
     }
     
     @objc func onSaveTapped(){
-        self.view.endEditing(true)
-        guard viewModel.isTransactionSaveEligible else { return }
+        view.endEditing(true)
+        guard viewModel.isTransactionSaveEligible else { showErrorAlertOnSave(); return }
         viewModel.saveTransaction()
         navigationController?.popViewController(animated: true)
     }
@@ -174,5 +174,16 @@ extension AddOrEditExpenceViewController: UIImagePickerControllerDelegate, UINav
         let newImage = image.resizeImage()
         viewModel.transaction.icon = newImage.pngData() as NSData?
         tableView.reloadData()
+    }
+}
+
+extension AddOrEditExpenceViewController{
+    
+    private func showErrorAlertOnSave() {
+        let message = "Categry and Amount are mandotary!!"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Okay", style: .default) {(_) in }
+        alert.addAction(confirmAction)
+        present(alert, animated: true, completion: nil)
     }
 }
