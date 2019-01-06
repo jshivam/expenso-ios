@@ -7,8 +7,9 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="newCat" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

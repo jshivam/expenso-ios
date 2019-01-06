@@ -15,8 +15,8 @@ class TransactionsViewController: UIViewController {
     fileprivate lazy var frc: NSFetchedResultsController<Transaction> = {
         let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
         let context = CoreDataManager.sharedInstance.workerManagedContext
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "category", ascending: true)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "category", cacheName: nil)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "newCat", cacheName: nil)
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
@@ -59,8 +59,10 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionInfo = frc.sections?[section]
-        return sectionInfo?.name ?? ""
+        if let sectionInfo = frc.sections?[section]{
+            return sectionInfo.name
+        }
+        return "No date"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,47 +90,60 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let transaction = frc.object(at: indexPath)
         pushAddOrEditExpenceViewController(transaction: transaction)
     }
 }
 
 extension TransactionsViewController: NSFetchedResultsControllerDelegate{
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        switch type {
-        case .insert:
-            let set = IndexSet.init(integer: sectionIndex)
-            tableView.insertSections(set, with: .fade)
-        case .delete:
-            let set = IndexSet.init(integer: sectionIndex)
-            tableView.deleteSections(set, with: .fade)
-        default:
-            break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let newIndexPath = newIndexPath else { return }
-        
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath], with: .fade)
-        case .delete:
-            tableView.deleteRows(at: [newIndexPath], with: .fade)
-        case .update:
-            tableView.reloadRows(at: [newIndexPath], with: .fade)
-        case .move:
-            tableView.deleteRows(at: [newIndexPath], with: .fade)
-            tableView.insertRows(at: [newIndexPath], with: .fade)
-        }
-    }
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//
+//        let set = IndexSet.init(integer: sectionIndex)
+//
+//        switch type {
+//        case .insert:
+//            tableView.insertSections(set, with: .fade)
+//            print("insertSections called index: \(sectionIndex)")
+//        case .delete:
+//            print("deleteSections called index: \(sectionIndex)")
+//            tableView.deleteSections(set, with: .fade)
+//        case .update:
+//            print("reloadSections called index: \(sectionIndex)")
+//            tableView.reloadSections(set, with: .fade)
+//        case .move:
+//            print("move sectionInfo called index: \(sectionIndex)")
+//            tableView.deleteSections(set, with: .fade)
+//            tableView.insertSections(set, with: .fade)
+//        }
+//    }
+//
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        guard let newIndexPath = newIndexPath else { return }
+//
+//        switch type {
+//        case .insert:
+//            print("insertRows called index: \(newIndexPath)")
+//            tableView.insertRows(at: [newIndexPath], with: .fade)
+//        case .delete:
+//            print("deleteRows called index: \(newIndexPath)")
+//            tableView.deleteRows(at: [newIndexPath], with: .fade)
+//        case .update:
+//            print("reloadRows called index: \(newIndexPath)")
+//            tableView.reloadRows(at: [newIndexPath], with: .fade)
+//        case .move:
+//            print("moveRows called index: \(newIndexPath)")
+//            tableView.deleteRows(at: [newIndexPath], with: .fade)
+//            tableView.insertRows(at: [newIndexPath], with: .fade)
+//        }
+//    }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+//        tableView.endUpdates()
+        tableView.reloadData()
     }
 }

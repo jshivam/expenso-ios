@@ -34,6 +34,7 @@ class AddOrEditExpenceViewModel {
     
     func saveTransaction()  {
         transaction.createdAt = Date() as NSDate
+        transaction.date = (transaction.date == nil) ? Date() as NSDate : transaction.date
         CoreDataManager.sharedInstance.saveContext()
     }
 }

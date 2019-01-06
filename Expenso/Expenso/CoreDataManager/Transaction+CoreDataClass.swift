@@ -2,7 +2,7 @@
 //  Transaction+CoreDataClass.swift
 //  Expenso
 //
-//  Created by Shivam Jaiswal on 05/01/19.
+//  Created by Shivam Jaiswal on 06/01/19.
 //  Copyright © 2019 App Street Software Pvt Ltd. All rights reserved.
 //
 //

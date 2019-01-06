@@ -42,6 +42,12 @@ extension Date{
         formatter.dateFormat = "dd/MM/YYYY HH:mm"
         return formatter.string(from: self)
     }
+    
+    var readableDate: String{
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "MMM dd"
+        return formatter.string(from: self)
+    }
 }
 
 extension UIImage{
