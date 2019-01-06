@@ -131,6 +131,11 @@ extension AddOrEditExpenceViewController
             cell.setDate((viewModel.transaction.date ?? Date() as NSDate) as Date)
             cell.dateCompletionHandler = {[weak self](date) in self?.didSelectDate(date)}
             return cell
+        case .Detail:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TrasactionDescriptionCell", for: indexPath) as! TrasactionDescriptionCell
+            cell.setText(viewModel.transaction.details)
+            cell.keyboardDismissHandler = {[weak self](text) in self?.viewModel.transaction.details = text}
+            return cell
         }
     }
     

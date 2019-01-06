@@ -305,6 +305,35 @@
                                     <outlet property="textfield" destination="YZU-0D-iq8" id="9CB-ai-493"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TrasactionDescriptionCell" rowHeight="132" id="QZl-Vp-sUN" customClass="TrasactionDescriptionCell" customModule="Expenso" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="335.5" width="375" height="132"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QZl-Vp-sUN" id="KxE-gA-gIF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dAy-wL-kcO">
+                                            <rect key="frame" x="16" y="16.5" width="343" height="100"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="3CN-0I-BWk"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dAy-wL-kcO" firstAttribute="top" secondItem="KxE-gA-gIF" secondAttribute="top" constant="16" id="7ov-n2-YhW"/>
+                                        <constraint firstAttribute="bottom" secondItem="dAy-wL-kcO" secondAttribute="bottom" constant="16" id="Vmj-iP-MM1"/>
+                                        <constraint firstItem="dAy-wL-kcO" firstAttribute="leading" secondItem="KxE-gA-gIF" secondAttribute="leading" constant="16" id="cMp-08-cGS"/>
+                                        <constraint firstAttribute="trailing" secondItem="dAy-wL-kcO" secondAttribute="trailing" constant="16" id="rGP-Oi-uZw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="dAy-wL-kcO" id="Gxw-31-8Y9"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="FgD-lK-uYl" id="oqj-21-eDA"/>

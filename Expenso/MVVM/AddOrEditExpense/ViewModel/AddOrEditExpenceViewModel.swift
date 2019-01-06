@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 enum AddExpenceFormType {
-    case Image, Category, Amount, Date
+    case Image, Category, Amount, Date, Detail
 }
 
 class AddOrEditExpenceViewModel {
     let transaction: Transaction
-    let items: [[AddExpenceFormType]] = [[.Image], [.Category], [.Amount, .Date]]
+    let items: [[AddExpenceFormType]] = [[.Image], [.Category], [.Amount, .Date], [.Detail]]
     init(transaction: Transaction = CoreDataManager.sharedInstance.createObject(classs: Transaction.self)) {
         self.transaction = transaction
     }
