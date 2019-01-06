@@ -27,7 +27,7 @@ class TrasactionImageCell: UITableViewCell {
         if let image = image {
             transactionImageView.image = image
         }else{
-            transactionImageView.image = UIImage.init(named: "placeholder")
+            transactionImageView.image = placehoderImage
         }
     }
     

@@ -11,11 +11,12 @@ import UIKit
 
 let calendar = Calendar.current
 let rootTabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
+let placehoderImage = UIImage.init(named: "placeholder")
 
 func setImageWith(data: NSData?, indexPath: IndexPath, completion: @escaping (UIImage?, IndexPath) -> Void) -> Void
 {
     guard let data = data else {
-        completion(UIImage.init(named: "placeholder"), indexPath)
+        completion(placehoderImage, indexPath)
         return
     }
     

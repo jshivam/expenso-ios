@@ -10,6 +10,8 @@
 		03FB7DB086DDB1ACA561405F /* libPods-Expenso.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DD3B9C0D395E9F56472E7E /* libPods-Expenso.a */; };
 		6A15ED7F21E26E7D00CBF275 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6A15ED7E21E26E7D00CBF275 /* README.md */; };
 		6A15ED8421E2950500CBF275 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A15ED8321E2950500CBF275 /* OverviewViewModel.swift */; };
+		6A15ED8821E29A9900CBF275 /* TransactionsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A15ED8721E29A9900CBF275 /* TransactionsPageViewModel.swift */; };
+		6A15ED8A21E29D0200CBF275 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A15ED8921E29D0200CBF275 /* TransactionsViewModel.swift */; };
 		6A25479721E1E76100DC4E11 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479521E1E76100DC4E11 /* Transaction+CoreDataClass.swift */; };
 		6A25479821E1E76100DC4E11 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479621E1E76100DC4E11 /* Transaction+CoreDataProperties.swift */; };
 		6A25479C21E230C600DC4E11 /* TransactionsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		6A15ED7E21E26E7D00CBF275 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6A15ED8321E2950500CBF275 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		6A15ED8721E29A9900CBF275 /* TransactionsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPageViewModel.swift; sourceTree = "<group>"; };
+		6A15ED8921E29D0200CBF275 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		6A25479521E1E76100DC4E11 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6A25479621E1E76100DC4E11 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPageViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +103,27 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6A15ED8521E29A3800CBF275 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6AA0D9B721DF792100AEEEA1 /* OverviewViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A15ED8621E29A7900CBF275 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A15ED8721E29A9900CBF275 /* TransactionsPageViewModel.swift */,
+				6A15ED8921E29D0200CBF275 /* TransactionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6A25479921E22F0F00DC4E11 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */,
 				6A25479B21E230C600DC4E11 /* TransactionsPageViewController.swift */,
 			);
 			path = View;
@@ -196,8 +218,8 @@
 		6AA0D9B521DF78ED00AEEEA1 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				6A15ED8621E29A7900CBF275 /* ViewModel */,
 				6A25479921E22F0F00DC4E11 /* View */,
-				6AA0D9B921DF79DE00AEEEA1 /* TransactionsViewController.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -206,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				6A15ED8221E294EA00CBF275 /* ViewModel */,
-				6AA0D9B721DF792100AEEEA1 /* OverviewViewController.swift */,
+				6A15ED8521E29A3800CBF275 /* View */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -371,6 +393,7 @@
 				6AA0D9C421DF88D100AEEEA1 /* TrasactionDateCell.swift in Sources */,
 				6AA0D9D221DFC5FA00AEEEA1 /* DoneToolbar.swift in Sources */,
 				6A15ED8421E2950500CBF275 /* OverviewViewModel.swift in Sources */,
+				6A15ED8821E29A9900CBF275 /* TransactionsPageViewModel.swift in Sources */,
 				6AA0D9C221DF881100AEEEA1 /* TrasactionDescriptionCell.swift in Sources */,
 				6AA0D99721DF6DB500AEEEA1 /* AppDelegate.swift in Sources */,
 				6AA0D9B121DF776200AEEEA1 /* AddOrEditExpenceViewModel.swift in Sources */,
@@ -379,6 +402,7 @@
 				6AA0D9BC21DF85A300AEEEA1 /* TrasactionAmountCell.swift in Sources */,
 				6AA0D9B821DF792100AEEEA1 /* OverviewViewController.swift in Sources */,
 				6A25479E21E2456C00DC4E11 /* Routers.swift in Sources */,
+				6A15ED8A21E29D0200CBF275 /* TransactionsViewModel.swift in Sources */,
 				6A25479C21E230C600DC4E11 /* TransactionsPageViewController.swift in Sources */,
 				6AB257FF21E088DC00D6A42D /* Utils.swift in Sources */,
 				6AA0D9CE21DF91DD00AEEEA1 /* AllCategoryViewModel.swift in Sources */,

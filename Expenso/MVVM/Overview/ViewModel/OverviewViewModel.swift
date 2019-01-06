@@ -111,7 +111,9 @@ class OverviewViewModel {
     
     func transactionMonth() -> Date
     {
-        guard let controllers = rootTabBarController?.viewControllers?.first as? UINavigationController, let transactionController = controllers.viewControllers.first as? TransactionsPageViewController, let date = transactionController.transactionDate() else {return Date()}
-        return date
+        guard let controllers = rootTabBarController?.viewControllers?.first as? UINavigationController,
+            let transactionController = controllers.viewControllers.first as? TransactionsPageViewController,
+            let viewController = transactionController.pageViewController?.viewControllers?.first as? TransactionsViewController else {return Date()}
+        return viewController.viewModel.date
     }
 }

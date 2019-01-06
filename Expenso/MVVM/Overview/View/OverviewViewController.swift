@@ -38,9 +38,4 @@ class OverviewViewController: UIViewController {
         updateView(info: transactionInfo())
         viewModel.updateChartData(pieChartView: chartView)
     }
-    
-    func transactionDate() -> Date {
-        guard let controllers = tabBarController?.viewControllers?.first as? UINavigationController, let transactionController = controllers.viewControllers.first as? TransactionsPageViewController, let date = transactionController.transactionDate() else {return Date()}
-        return date
-    }
 }

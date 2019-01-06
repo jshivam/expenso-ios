@@ -29,7 +29,7 @@ class AddOrEditExpenceViewModel {
         if let data = transaction.icon {
             return UIImage.init(data: data as Data)
         }
-        return UIImage.init(named: "placeholder")
+        return placehoderImage
     }
     
     func saveTransaction()  {

@@ -11,8 +11,7 @@ import UIKit
 class TransactionsPageViewController: UIViewController {
 
     var pageViewController: UIPageViewController!
-    let pageRange = -12...12
-    var currentIndex = 0
+    let viewModel = TransactionsPageViewModel()
     
     lazy var navLabel: UILabel = {
         let label = UILabel()
@@ -56,9 +55,9 @@ class TransactionsPageViewController: UIViewController {
         pageViewController.dataSource = self;
         pageViewController.delegate = self;
 
-        if let controller = viewController(at: currentIndex)
+        if let controller = viewController(at: 0)
         {
-            updateView(date: controller.month(), total: controller.monthlyExpense())
+            updateView(date: controller.viewModel.month(), total: controller.viewModel.monthlyExpense())
             pageViewController.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
             addChild(pageViewController!)
             view.insertSubview(pageViewController!.view, at: 0)
@@ -67,23 +66,19 @@ class TransactionsPageViewController: UIViewController {
     }
     
     func viewController(at index: Int) -> TransactionsViewController? {
-        if (pageRange.contains(index)){
+        if (viewModel.pageRange.contains(index)){
             let date = Date()
             let controller = storyboard?.instantiateViewController(withIdentifier: "TransactionsViewController") as! TransactionsViewController
-            controller.date = date.month(after: index)
-            controller.currentIndex = index
-            controller.expenseUpdateHandler = {[weak self] (transactionController, date, expense) in
+            controller.viewModel.date = date.month(after: index)
+            controller.viewModel.currentIndex = index
+            controller.viewModel.expenseUpdateHandler = {[weak self] (transactionController, date, expense) in
                 self?.updateView(date: date, total: expense)
             }
             return controller;
         }
         return nil
     }
-    
-    func transactionDate() -> Date? {
-        guard let viewController = pageViewController.viewControllers?.first as? TransactionsViewController else {return nil}
-        return viewController.date
-    }
+
 }
 
 extension TransactionsPageViewController: UIPageViewControllerDataSource,UIPageViewControllerDelegate
@@ -91,22 +86,21 @@ extension TransactionsPageViewController: UIPageViewControllerDataSource,UIPageV
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let viewController = viewController as! TransactionsViewController
-        let index = viewController.currentIndex;
+        let index = viewController.viewModel.currentIndex;
         let controller = self.viewController(at: index - 1)
         return controller
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let viewController = viewController as! TransactionsViewController
-        let index = viewController.currentIndex;
+        let index = viewController.viewModel.currentIndex;
         let controller = self.viewController(at: index + 1)
         return controller
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let viewController = pageViewController.viewControllers?.first as? TransactionsViewController else {return}
-        currentIndex = viewController.currentIndex
-        updateView(date: viewController.month(), total: viewController.monthlyExpense())
+        updateView(date: viewController.viewModel.month(), total: viewController.viewModel.monthlyExpense())
     }    
 }
 
