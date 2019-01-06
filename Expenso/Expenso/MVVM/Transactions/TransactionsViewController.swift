@@ -93,9 +93,16 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         let transaction = frc.object(at: indexPath)
         cell.textLabel?.text = transaction.category
         cell.detailTextLabel?.text = String(transaction.amount)
-//        setImageWith(data: transaction.icon, indexPath: indexPath) { [weak cell] (image, ip) in
-//            if indexPath == ip { cell?.imageView?.image = image }
-//        }
+        if let data = transaction.icon {
+            setImageWith(data: data, indexPath: indexPath) { [weak cell] (image, ip) in
+                if indexPath == ip {
+                    cell?.imageView?.image = image
+                }
+            }
+        }else{
+            cell.imageView?.image = UIImage.init(named: "placeholder")
+        }
+        
         return cell
     }
     
@@ -104,56 +111,24 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         let transaction = frc.object(at: indexPath)
         pushAddOrEditExpenceViewController(transaction: transaction)
     }
+    
+//    func getNewsImageForCell(urlString: String, cellForRowAtIndexPath indexPath: NSIndexPath) {
+//        var image: UIImage?
+//
+//        DispatchQueue.global(qos: .background)
+//            {
+//            image =  UIImage(data: NSData(contentsOfURL: NSURL(string:urlString)!)! as Data)
+//            dispatch_get_main_queue().async() {
+//                let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+//                cell.imageView?.image = image
+//                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+//            }
+//        }
+//    }
 }
 
 extension TransactionsViewController: NSFetchedResultsControllerDelegate{
-//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.beginUpdates()
-//    }
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-//
-//        let set = IndexSet.init(integer: sectionIndex)
-//
-//        switch type {
-//        case .insert:
-//            tableView.insertSections(set, with: .fade)
-//            print("insertSections called index: \(sectionIndex)")
-//        case .delete:
-//            print("deleteSections called index: \(sectionIndex)")
-//            tableView.deleteSections(set, with: .fade)
-//        case .update:
-//            print("reloadSections called index: \(sectionIndex)")
-//            tableView.reloadSections(set, with: .fade)
-//        case .move:
-//            print("move sectionInfo called index: \(sectionIndex)")
-//            tableView.deleteSections(set, with: .fade)
-//            tableView.insertSections(set, with: .fade)
-//        }
-//    }
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//        guard let newIndexPath = newIndexPath else { return }
-//
-//        switch type {
-//        case .insert:
-//            print("insertRows called index: \(newIndexPath)")
-//            tableView.insertRows(at: [newIndexPath], with: .fade)
-//        case .delete:
-//            print("deleteRows called index: \(newIndexPath)")
-//            tableView.deleteRows(at: [newIndexPath], with: .fade)
-//        case .update:
-//            print("reloadRows called index: \(newIndexPath)")
-//            tableView.reloadRows(at: [newIndexPath], with: .fade)
-//        case .move:
-//            print("moveRows called index: \(newIndexPath)")
-//            tableView.deleteRows(at: [newIndexPath], with: .fade)
-//            tableView.insertRows(at: [newIndexPath], with: .fade)
-//        }
-//    }
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.endUpdates()
         tableView.reloadData()
         updateView()
         expenseUpdateHandler?(self, month(), monthlyExpense())

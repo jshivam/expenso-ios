@@ -42,8 +42,17 @@ class AddOrEditExpenceViewController: UITableViewController {
         let album = UIAlertAction.init(title: "Choose Existing", style: .default) {[weak self] (action) in
             self?.showPicker(.photoLibrary)
         }
+        
         let camera = UIAlertAction.init(title: "Camera", style: .default) {[weak self] (action) in
             self?.showPicker(.camera)
+        }
+        
+        if viewModel.transaction.icon != nil{
+            let removeExisting = UIAlertAction.init(title: "Remove Icon", style: .default) {[weak self] (action) in
+                self?.viewModel.transaction.icon = nil
+                self?.tableView.reloadData()
+            }
+            alertController.addAction(removeExisting)
         }
         
         alertController.addAction(cancel)
@@ -58,7 +67,10 @@ class AddOrEditExpenceViewController: UITableViewController {
         let photoController = UIImagePickerController()
         photoController.sourceType = sourceType;
         photoController.delegate = self;
-        present(photoController, animated: true, completion: nil)
+        
+        DispatchQueue.main.async { [weak self] () in
+             self?.present(photoController, animated: true, completion: nil)
+        }
     }
     
     func pushCategoriesViewController(){
