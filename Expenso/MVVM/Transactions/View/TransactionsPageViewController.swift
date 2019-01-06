@@ -12,6 +12,10 @@ class TransactionsPageViewController: UIViewController {
 
     var pageViewController: UIPageViewController!
     let viewModel = TransactionsPageViewModel()
+    var visibleController: TransactionsViewController {
+        let viewController = pageViewController.viewControllers?.first as! TransactionsViewController
+        return viewController
+    }
     
     lazy var navLabel: UILabel = {
         let label = UILabel()
@@ -71,8 +75,10 @@ class TransactionsPageViewController: UIViewController {
             let controller = storyboard?.instantiateViewController(withIdentifier: "TransactionsViewController") as! TransactionsViewController
             controller.viewModel.date = date.month(after: index)
             controller.viewModel.currentIndex = index
-            controller.viewModel.expenseUpdateHandler = {[weak self] (transactionController, date, expense) in
-                self?.updateView(date: date, total: expense)
+            controller.viewModel.expenseUpdateHandler = {[unowned self] (transactionController, date, expense) in
+                if self.visibleController.viewModel.currentIndex == transactionController.viewModel.currentIndex{
+                    self.updateView(date: date, total: expense)
+                }
             }
             return controller;
         }
@@ -99,8 +105,7 @@ extension TransactionsPageViewController: UIPageViewControllerDataSource,UIPageV
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard let viewController = pageViewController.viewControllers?.first as? TransactionsViewController else {return}
-        updateView(date: viewController.viewModel.month(), total: viewController.viewModel.monthlyExpense())
+        updateView(date: visibleController.viewModel.month(), total: visibleController.viewModel.monthlyExpense())
     }    
 }
 
