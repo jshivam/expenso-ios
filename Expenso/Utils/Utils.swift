@@ -53,12 +53,36 @@ extension Date{
     func stringValue(_ format: DateFormat) -> String {
         let formatter = DateFormatter.init()
         formatter.dateFormat = format.rawValue
+        if let fancyDate = fancyDateString(){
+            return fancyDate
+        }
         return formatter.string(from: self)
     }
     
     func month(after: Int) -> Date {
         let month = calendar.date(byAdding: .month, value: after, to: self)
         return month!
+    }
+    
+    func day(after: Int) -> Date {
+        let day = calendar.date(byAdding: .day, value: after, to: self)
+        return day!
+    }
+    
+    private func fancyDateString() -> String? {
+        let currentDate = Date()
+        if self.isOfSameDay(date: currentDate.day(after: 0)) {
+            return "Today"
+        }else if self.isOfSameDay(date: currentDate.day(after: -1)) {
+            return "Yesterday"
+        }
+        return nil
+    }
+    
+    func isOfSameDay(date: Date) -> Bool {
+        let date1 = Calendar.current.date(from: Calendar.current.dateComponents([.day, .year, .month], from: self))!
+        let date2 = Calendar.current.date(from: Calendar.current.dateComponents([.day, .year, .month], from: date))!
+        return date1 == date2
     }
     
     func startOfMonth() -> Date {
