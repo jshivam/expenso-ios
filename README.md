@@ -1,7 +1,9 @@
 # expenso-ios
 ![alt tag](https://github.com/jshivam/expenso-ios/blob/master/expenso.gif)
 
-records expenses in your app locally. 
+It Records expenses in your app locally. 
+
+
 Create an expense tracking app. The app has 2 tabs. Transaction and Overview. Total number of screens possible in Transaction tab is 2. In Overview tab, total number of screens possible is 
 
 You are free to make unmentioned design assumptions on any of the screens. 
